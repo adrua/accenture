@@ -1,0 +1,98 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>{{ 'CREDActividadEconomica._titulo' | translate }}</ion-title>
+      <ion-buttons slot="start">
+        <ion-button (click)="cancel()">
+          <span color="primary" showWhen="ios">
+            {{ 'CANCEL_BUTTON' | translate }}
+          </span>
+          <ion-icon slot="icon-only" name="md-close" showWhen="core,android,windows"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="done()" [disabled]="!isReadyToSave" strong>
+          <span color="primary" showWhen="ios">
+            {{ 'DONE_BUTTON' | translate }}
+          </span>
+          <ion-icon slot="icon-only" name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <form class="list" [formGroup]="CREDActividadEconomicaForm">
+        <ion-list inset>
+          <ion-item (click)="onDDLBCREDSolicitudId()">
+                <ion-label position="stacked">{{ "CREDActividadEconomica.CREDSolicitudId" | translate }}!</ion-label>
+                <ion-input 
+                    [(ngModel)]="_CREDSolicitudId" 
+                    formControlName="CREDSolicitudId" 
+                    placeholder="1234" >
+                </ion-input>
+            </ion-item>
+            <ion-text *ngIf="CREDActividadEconomicaForm.controls.CREDSolicitudId.invalid && CREDActividadEconomicaForm.controls.CREDSolicitudId.touched" color="danger" padding-left>{{ "CREDActividadEconomica.CREDSolicitudIdError" | translate }}</ion-text>       
+          <ion-item>
+                <ion-label position="stacked">{{ "CREDActividadEconomica.ActividadOcupacionActividadEconomicaCRED" | translate }}!</ion-label>
+                <ion-select 
+                    [(ngModel)]="selectedCREDActividadEconomica.ActividadOcupacionActividadEconomicaCRED"
+                    formControlName="ActividadOcupacionActividadEconomicaCRED"
+                    placeholder="Pensionado">
+                  <ion-select-option value="AS" selected="true">{{ "CREDActividadEconomica._ActividadOcupacionActividadEconomicaCRED.Asalariado" | translate }}</ion-select-option>
+                  <ion-select-option value="IN">{{ "CREDActividadEconomica._ActividadOcupacionActividadEconomicaCRED.Independiente" | translate }}</ion-select-option>
+                  <ion-select-option value="PE">{{ "CREDActividadEconomica._ActividadOcupacionActividadEconomicaCRED.Pensionado" | translate }}</ion-select-option>
+                  <ion-select-option value="ES">{{ "CREDActividadEconomica._ActividadOcupacionActividadEconomicaCRED.Estudiante" | translate }}</ion-select-option>
+                  <ion-select-option value="AM">{{ "CREDActividadEconomica._ActividadOcupacionActividadEconomicaCRED.Ama_de_casa" | translate }}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-text *ngIf="CREDActividadEconomicaForm.controls.ActividadOcupacionActividadEconomicaCRED.invalid && CREDActividadEconomicaForm.controls.ActividadOcupacionActividadEconomicaCRED.touched" color="danger" padding-left>{{ "CREDActividadEconomica.ActividadOcupacionActividadEconomicaCREDError" | translate }}</ion-text>       
+          <ion-item>
+                <ion-label position="stacked">{{ "CREDActividadEconomica.TipoDeContratoActividadEconomicaCRED" | translate }}?</ion-label>
+                <ion-select 
+                    [(ngModel)]="selectedCREDActividadEconomica.TipoDeContratoActividadEconomicaCRED"
+                    formControlName="TipoDeContratoActividadEconomicaCRED"
+                    placeholder="Labor de obra">
+                  <ion-select-option value="IN" selected="true">{{ "CREDActividadEconomica._TipoDeContratoActividadEconomicaCRED.Indefinido" | translate }}</ion-select-option>
+                  <ion-select-option value="TM">{{ "CREDActividadEconomica._TipoDeContratoActividadEconomicaCRED.Temporal" | translate }}</ion-select-option>
+                  <ion-select-option value="TF">{{ "CREDActividadEconomica._TipoDeContratoActividadEconomicaCRED.Termino_Fijo" | translate }}</ion-select-option>
+                  <ion-select-option value="LO">{{ "CREDActividadEconomica._TipoDeContratoActividadEconomicaCRED.Labor_de_Obra" | translate }}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-text *ngIf="CREDActividadEconomicaForm.controls.TipoDeContratoActividadEconomicaCRED.invalid && CREDActividadEconomicaForm.controls.TipoDeContratoActividadEconomicaCRED.touched" color="danger" padding-left>{{ "CREDActividadEconomica.TipoDeContratoActividadEconomicaCREDError" | translate }}</ion-text>       
+          <ion-item>
+                <ion-label position="stacked">{{ "CREDActividadEconomica.TipoDeIndependienteActividadEconomicaCRED" | translate }}?</ion-label>
+                <ion-select 
+                    [(ngModel)]="selectedCREDActividadEconomica.TipoDeIndependienteActividadEconomicaCRED"
+                    formControlName="TipoDeIndependienteActividadEconomicaCRED"
+                    placeholder="Contratista">
+                  <ion-select-option value="CO" selected="true">{{ "CREDActividadEconomica._TipoDeIndependienteActividadEconomicaCRED.Contratista" | translate }}</ion-select-option>
+                  <ion-select-option value="GA">{{ "CREDActividadEconomica._TipoDeIndependienteActividadEconomicaCRED.Ganadero-Agricultor" | translate }}</ion-select-option>
+                  <ion-select-option value="TR">{{ "CREDActividadEconomica._TipoDeIndependienteActividadEconomicaCRED.Transportador" | translate }}</ion-select-option>
+                  <ion-select-option value="CM">{{ "CREDActividadEconomica._TipoDeIndependienteActividadEconomicaCRED.Comerciante" | translate }}</ion-select-option>
+                  <ion-select-option value="CA">{{ "CREDActividadEconomica._TipoDeIndependienteActividadEconomicaCRED.Consultor-Asesor" | translate }}</ion-select-option>
+                  <ion-select-option value="IN">{{ "CREDActividadEconomica._TipoDeIndependienteActividadEconomicaCRED.Industrial" | translate }}</ion-select-option>
+                  <ion-select-option value="RE">{{ "CREDActividadEconomica._TipoDeIndependienteActividadEconomicaCRED.Rentista" | translate }}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-text *ngIf="CREDActividadEconomicaForm.controls.TipoDeIndependienteActividadEconomicaCRED.invalid && CREDActividadEconomicaForm.controls.TipoDeIndependienteActividadEconomicaCRED.touched" color="danger" padding-left>{{ "CREDActividadEconomica.TipoDeIndependienteActividadEconomicaCREDError" | translate }}</ion-text>       
+          <ion-item>
+                <ion-label position="stacked">{{ "CREDActividadEconomica.Participacion" | translate }}?</ion-label>
+                <ion-input 
+                    [(ngModel)]="selectedCREDActividadEconomica.Participacion" 
+                    formControlName="Participacion" 
+                    placeholder="30.00" >
+                </ion-input>
+            </ion-item>
+            <ion-text *ngIf="CREDActividadEconomicaForm.controls.Participacion.invalid && CREDActividadEconomicaForm.controls.Participacion.touched" color="danger" padding-left>{{ "CREDActividadEconomica.ParticipacionError" | translate }}</ion-text>       
+          <ion-item>
+                <ion-label position="stacked">{{ "CREDActividadEconomica.CodigoCIU" | translate }}:</ion-label>
+                <ion-input 
+                    [(ngModel)]="selectedCREDActividadEconomica.CodigoCIU" 
+                    formControlName="CodigoCIU" 
+                    placeholder="12345678" >
+                </ion-input>
+            </ion-item>
+            <ion-text *ngIf="CREDActividadEconomicaForm.controls.CodigoCIU.invalid && CREDActividadEconomicaForm.controls.CodigoCIU.touched" color="danger" padding-left>{{ "CREDActividadEconomica.CodigoCIUError" | translate }}</ion-text>       
+  
+        </ion-list>
+    </form>
+</ion-content>

@@ -4,12 +4,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { CREDSolicitudesPage } from './cred.solicitudes.page';
 import { CREDActividadEconomicaPage } from './cred.actividadeconomica.page';
 
 @NgModule({
   declarations: [
-    CREDSolicitudesPage
+    CREDActividadEconomicaPage
   ],
   imports: [
     IonicModule.forRoot(),
@@ -17,9 +16,9 @@ import { CREDActividadEconomicaPage } from './cred.actividadeconomica.page';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      { path: '', component: CREDSolicitudesPage }
+      { path: '', component: CREDActividadEconomicaPage }
     ]),
     TranslateModule.forChild()
   ]
 })
-export class CREDSolicitudesPageModule { }
+export class CREDActividadEconomicaPageModule { }

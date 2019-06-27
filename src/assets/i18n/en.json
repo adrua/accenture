@@ -1,4 +1,43 @@
 {
+    "CREDActividadEconomica" : {
+        "CREDSolicitudId" : "Id",
+        "CREDSolicitudIdError" : "Id invalido", 
+        "ActividadOcupacionActividadEconomicaCRED" : "Actividad Ocupacion",
+        "_ActividadOcupacionActividadEconomicaCRED" : {
+            "Asalariado" : "Asalariado",
+            "Independiente" : "Independiente",
+            "Pensionado" : "Pensionado",
+            "Estudiante" : "Estudiante",
+            "Ama_de_casa" : "Ama de casa"
+        },
+        "ActividadOcupacionActividadEconomicaCREDError" : "Actividad Ocupacion invalido", 
+        "TipoDeContratoActividadEconomicaCRED" : "Tipo De Contrato",
+        "_TipoDeContratoActividadEconomicaCRED" : {
+            "Indefinido" : "Indefinido",
+            "Temporal" : "Temporal",
+            "Termino_Fijo" : "Termino Fijo",
+            "Labor_de_Obra" : "Labor de Obra"
+        },
+        "TipoDeContratoActividadEconomicaCREDError" : "Tipo De Contrato invalido", 
+        "TipoDeIndependienteActividadEconomicaCRED" : "Tipo De Independiente",
+        "_TipoDeIndependienteActividadEconomicaCRED" : {
+            "Contratista" : "Contratista",
+            "Ganadero-Agricultor" : "Ganadero-Agricultor",
+            "Transportador" : "Transportador",
+            "Comerciante" : "Comerciante",
+            "Consultor-Asesor" : "Consultor-Asesor",
+            "Industrial" : "Industrial",
+            "Rentista" : "Rentista"
+        },
+        "TipoDeIndependienteActividadEconomicaCREDError" : "Tipo De Independiente invalido", 
+        "Participacion" : "Participacion",
+        "ParticipacionError" : "Participacion invalido", 
+        "CodigoCIU" : "Codigo C I U",
+        "CodigoCIUError" : "Codigo C I U invalido", 
+        "_guardar" : "Salvar y Seguir",
+        "_cancelar" : "Cancelar",
+        "_titulo" : "ActividadEconomica.CRED"
+    },
     "CREDSolicitudes" : {
         "CREDSolicitudId" : "Id",
         "CREDSolicitudIdError" : "Id invalido", 
