@@ -1,0 +1,376 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'CREDSolicitudes._titulo' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">
+        <span color="primary" showWhen="ios">
+          {{ 'CANCEL_BUTTON' | translate }}
+        </span>
+        <ion-icon slot="icon-only" name="md-close" showWhen="core,android,windows"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="done()" [disabled]="!isReadyToSave" strong>
+        <span color="primary" showWhen="ios">
+          {{ 'DONE_BUTTON' | translate }}
+        </span>
+        <ion-icon slot="icon-only" name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form class="list" [formGroup]="CREDSolicitudesForm">
+      <ion-list inset>
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.CREDSolicitudId" | translate }}!</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.CREDSolicitudId" 
+                  formControlName="CREDSolicitudId" 
+                  placeholder="1234" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.CREDSolicitudId.invalid && CREDSolicitudesForm.controls.CREDSolicitudId.touched" color="danger" padding-left>{{ "CREDSolicitudes.CREDSolicitudIdError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.PrimerApellidoCREDSolicitud" | translate }}:</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.PrimerApellidoCREDSolicitud" 
+                  formControlName="PrimerApellidoCREDSolicitud" 
+                  placeholder="Armando" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.PrimerApellidoCREDSolicitud.invalid && CREDSolicitudesForm.controls.PrimerApellidoCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.PrimerApellidoCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.SegundoApellidoCREDSolicitud" | translate }}?</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.SegundoApellidoCREDSolicitud" 
+                  formControlName="SegundoApellidoCREDSolicitud" 
+                  placeholder="Escandalo" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.SegundoApellidoCREDSolicitud.invalid && CREDSolicitudesForm.controls.SegundoApellidoCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.SegundoApellidoCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.PrimerNombreCREDSolicitud" | translate }}:</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.PrimerNombreCREDSolicitud" 
+                  formControlName="PrimerNombreCREDSolicitud" 
+                  placeholder="De los Rios" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.PrimerNombreCREDSolicitud.invalid && CREDSolicitudesForm.controls.PrimerNombreCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.PrimerNombreCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.SegundoNombreCREDSolicitud" | translate }}?</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.SegundoNombreCREDSolicitud" 
+                  formControlName="SegundoNombreCREDSolicitud" 
+                  placeholder="Aguados" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.SegundoNombreCREDSolicitud.invalid && CREDSolicitudesForm.controls.SegundoNombreCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.SegundoNombreCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.OtrosNombresCREDSolicitud" | translate }}?</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.OtrosNombresCREDSolicitud" 
+                  formControlName="OtrosNombresCREDSolicitud" 
+                  placeholder="" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.OtrosNombresCREDSolicitud.invalid && CREDSolicitudesForm.controls.OtrosNombresCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.OtrosNombresCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.TipoIDCREDSolicitud" | translate }}:</ion-label>
+              <ion-select 
+                  [(ngModel)]="selectedCREDSolicitudes.TipoIDCREDSolicitud"
+                  formControlName="TipoIDCREDSolicitud"
+                  placeholder="CC">
+                <ion-select-option value="TI">{{ "CREDSolicitudes._TipoIDCREDSolicitud.T.I" | translate }}</ion-select-option>
+                <ion-select-option value="CC" selected="true">{{ "CREDSolicitudes._TipoIDCREDSolicitud.C.C." | translate }}</ion-select-option>
+                <ion-select-option value="CE">{{ "CREDSolicitudes._TipoIDCREDSolicitud.C.E." | translate }}</ion-select-option>
+                <ion-select-option value="PA">{{ "CREDSolicitudes._TipoIDCREDSolicitud.Pasaporte" | translate }}</ion-select-option>
+                <ion-select-option value="CA">{{ "CREDSolicitudes._TipoIDCREDSolicitud.Carnet_DIP" | translate }}</ion-select-option>
+                <ion-select-option value="RE">{{ "CREDSolicitudes._TipoIDCREDSolicitud.Registro_Civil" | translate }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.TipoIDCREDSolicitud.invalid && CREDSolicitudesForm.controls.TipoIDCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.TipoIDCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.NumeroIDCREDSolicitud" | translate }}:</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.NumeroIDCREDSolicitud" 
+                  formControlName="NumeroIDCREDSolicitud" 
+                  placeholder="73.123.614" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.NumeroIDCREDSolicitud.invalid && CREDSolicitudesForm.controls.NumeroIDCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.NumeroIDCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.FechaDeExpedicionCREDSolicitud" | translate }}:</ion-label>
+              <ion-datetime  displayFormat="MMM DD/YYYY"
+                  [(ngModel)]="selectedCREDSolicitudes.FechaDeExpedicionCREDSolicitud" 
+                  formControlName="FechaDeExpedicionCREDSolicitud" 
+                  placeholder="1995-01-13" >
+              </ion-datetime>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.FechaDeExpedicionCREDSolicitud.invalid && CREDSolicitudesForm.controls.FechaDeExpedicionCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.FechaDeExpedicionCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.LugarDeExpedicionCREDSolicitud" | translate }}:</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.LugarDeExpedicionCREDSolicitud" 
+                  formControlName="LugarDeExpedicionCREDSolicitud" 
+                  placeholder="Cartagena" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.LugarDeExpedicionCREDSolicitud.invalid && CREDSolicitudesForm.controls.LugarDeExpedicionCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.LugarDeExpedicionCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.NacionalidadCREDSolicitud" | translate }}:</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.NacionalidadCREDSolicitud" 
+                  formControlName="NacionalidadCREDSolicitud" 
+                  placeholder="Colombiano" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.NacionalidadCREDSolicitud.invalid && CREDSolicitudesForm.controls.NacionalidadCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.NacionalidadCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.LugarDeNacimientoCREDSolicitud" | translate }}:</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.LugarDeNacimientoCREDSolicitud" 
+                  formControlName="LugarDeNacimientoCREDSolicitud" 
+                  placeholder="Barranquilla" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.LugarDeNacimientoCREDSolicitud.invalid && CREDSolicitudesForm.controls.LugarDeNacimientoCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.LugarDeNacimientoCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.FechaDeNacimientoCREDSolicitud" | translate }}:</ion-label>
+              <ion-datetime  displayFormat="MMM DD/YYYY"
+                  [(ngModel)]="selectedCREDSolicitudes.FechaDeNacimientoCREDSolicitud" 
+                  formControlName="FechaDeNacimientoCREDSolicitud" 
+                  placeholder="1965-05-25" >
+              </ion-datetime>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.FechaDeNacimientoCREDSolicitud.invalid && CREDSolicitudesForm.controls.FechaDeNacimientoCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.FechaDeNacimientoCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.SexoCREDSolicitud" | translate }}:</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.SexoCREDSolicitud" 
+                  formControlName="SexoCREDSolicitud" 
+                  placeholder="Masculino" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.SexoCREDSolicitud.invalid && CREDSolicitudesForm.controls.SexoCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.SexoCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.EstadoCivilCREDSolicitud" | translate }}:</ion-label>
+              <ion-select 
+                  [(ngModel)]="selectedCREDSolicitudes.EstadoCivilCREDSolicitud"
+                  formControlName="EstadoCivilCREDSolicitud"
+                  placeholder="Soltero">
+                <ion-select-option value="CA">{{ "CREDSolicitudes._EstadoCivilCREDSolicitud.Casado" | translate }}</ion-select-option>
+                <ion-select-option value="SO" selected="true">{{ "CREDSolicitudes._EstadoCivilCREDSolicitud.Soltero" | translate }}</ion-select-option>
+                <ion-select-option value="DI">{{ "CREDSolicitudes._EstadoCivilCREDSolicitud.Divorciado" | translate }}</ion-select-option>
+                <ion-select-option value="VI">{{ "CREDSolicitudes._EstadoCivilCREDSolicitud.Viudo" | translate }}</ion-select-option>
+                <ion-select-option value="UL">{{ "CREDSolicitudes._EstadoCivilCREDSolicitud.Union_libre" | translate }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.EstadoCivilCREDSolicitud.invalid && CREDSolicitudesForm.controls.EstadoCivilCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.EstadoCivilCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.PersonasACargoCREDSolicitud" | translate }}:</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.PersonasACargoCREDSolicitud" 
+                  formControlName="PersonasACargoCREDSolicitud" 
+                  placeholder="2" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.PersonasACargoCREDSolicitud.invalid && CREDSolicitudesForm.controls.PersonasACargoCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.PersonasACargoCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.NivelEducativoCREDSolicitud" | translate }}:</ion-label>
+              <ion-select 
+                  [(ngModel)]="selectedCREDSolicitudes.NivelEducativoCREDSolicitud"
+                  formControlName="NivelEducativoCREDSolicitud"
+                  placeholder="Ninguno">
+                <ion-select-option value="NI" selected="true">{{ "CREDSolicitudes._NivelEducativoCREDSolicitud.Ninguno" | translate }}</ion-select-option>
+                <ion-select-option value="PR">{{ "CREDSolicitudes._NivelEducativoCREDSolicitud.Primaria" | translate }}</ion-select-option>
+                <ion-select-option value="BA">{{ "CREDSolicitudes._NivelEducativoCREDSolicitud.Bachiller" | translate }}</ion-select-option>
+                <ion-select-option value="AU">{{ "CREDSolicitudes._NivelEducativoCREDSolicitud.Aux_Tecnico" | translate }}</ion-select-option>
+                <ion-select-option value="TE">{{ "CREDSolicitudes._NivelEducativoCREDSolicitud.Tecnologo" | translate }}</ion-select-option>
+                <ion-select-option value="ES">{{ "CREDSolicitudes._NivelEducativoCREDSolicitud.Est_Universitario" | translate }}</ion-select-option>
+                <ion-select-option value="PF">{{ "CREDSolicitudes._NivelEducativoCREDSolicitud.Profesional" | translate }}</ion-select-option>
+                <ion-select-option value="PO">{{ "CREDSolicitudes._NivelEducativoCREDSolicitud.Posgrado" | translate }}</ion-select-option>
+                <ion-select-option value="MA">{{ "CREDSolicitudes._NivelEducativoCREDSolicitud.Maestria_Doctorado" | translate }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.NivelEducativoCREDSolicitud.invalid && CREDSolicitudesForm.controls.NivelEducativoCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.NivelEducativoCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.ProfesionCREDSolicitud" | translate }}?</ion-label>
+              <ion-select 
+                  [(ngModel)]="selectedCREDSolicitudes.ProfesionCREDSolicitud"
+                  formControlName="ProfesionCREDSolicitud"
+                  placeholder="Enderezador de chicharrones">
+                <ion-select-option value="ED" selected="true">{{ "CREDSolicitudes._ProfesionCREDSolicitud.Educacion" | translate }}</ion-select-option>
+                <ion-select-option value="MA">{{ "CREDSolicitudes._ProfesionCREDSolicitud.Matematicas" | translate }}</ion-select-option>
+                <ion-select-option value="SA">{{ "CREDSolicitudes._ProfesionCREDSolicitud.Salud" | translate }}</ion-select-option>
+                <ion-select-option value="RE">{{ "CREDSolicitudes._ProfesionCREDSolicitud.Religiosos" | translate }}</ion-select-option>
+                <ion-select-option value="DE">{{ "CREDSolicitudes._ProfesionCREDSolicitud.Derecho" | translate }}</ion-select-option>
+                <ion-select-option value="CH">{{ "CREDSolicitudes._ProfesionCREDSolicitud.Ciencias_Humanas" | translate }}</ion-select-option>
+                <ion-select-option value="CN">{{ "CREDSolicitudes._ProfesionCREDSolicitud.Ciencias_Naturales" | translate }}</ion-select-option>
+                <ion-select-option value="CE">{{ "CREDSolicitudes._ProfesionCREDSolicitud.Ciencias_Economicas" | translate }}</ion-select-option>
+                <ion-select-option value="CF">{{ "CREDSolicitudes._ProfesionCREDSolicitud.Cincias_Fisicas" | translate }}</ion-select-option>
+                <ion-select-option value="IN">{{ "CREDSolicitudes._ProfesionCREDSolicitud.Ingenierias" | translate }}</ion-select-option>
+                <ion-select-option value="AM">{{ "CREDSolicitudes._ProfesionCREDSolicitud.Artes_y_Medios" | translate }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.ProfesionCREDSolicitud.invalid && CREDSolicitudesForm.controls.ProfesionCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.ProfesionCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.DireccionResidenciaCREDSolicitud" | translate }}:</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.DireccionResidenciaCREDSolicitud" 
+                  formControlName="DireccionResidenciaCREDSolicitud" 
+                  placeholder="Dg 89a # 115-55 int 9 apto 504 " >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.DireccionResidenciaCREDSolicitud.invalid && CREDSolicitudesForm.controls.DireccionResidenciaCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.DireccionResidenciaCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.IntentosDireccionResidenciaCREDSolicitud" | translate }}:</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.IntentosDireccionResidenciaCREDSolicitud" 
+                  formControlName="IntentosDireccionResidenciaCREDSolicitud" 
+                  placeholder="01" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.IntentosDireccionResidenciaCREDSolicitud.invalid && CREDSolicitudesForm.controls.IntentosDireccionResidenciaCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.IntentosDireccionResidenciaCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.BarrioResidenciaCREDSolicitud" | translate }}:</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.BarrioResidenciaCREDSolicitud" 
+                  formControlName="BarrioResidenciaCREDSolicitud" 
+                  placeholder="Ciudadela Colsubsidio" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.BarrioResidenciaCREDSolicitud.invalid && CREDSolicitudesForm.controls.BarrioResidenciaCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.BarrioResidenciaCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.CiudadMunicipioDeResidenciaCREDSolicitud" | translate }}:</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.CiudadMunicipioDeResidenciaCREDSolicitud" 
+                  formControlName="CiudadMunicipioDeResidenciaCREDSolicitud" 
+                  placeholder="Bogota D.C" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.CiudadMunicipioDeResidenciaCREDSolicitud.invalid && CREDSolicitudesForm.controls.CiudadMunicipioDeResidenciaCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.CiudadMunicipioDeResidenciaCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.DepartamentodeResidenciaCREDSolicitud" | translate }}:</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.DepartamentodeResidenciaCREDSolicitud" 
+                  formControlName="DepartamentodeResidenciaCREDSolicitud" 
+                  placeholder="Cundinamarcar" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.DepartamentodeResidenciaCREDSolicitud.invalid && CREDSolicitudesForm.controls.DepartamentodeResidenciaCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.DepartamentodeResidenciaCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.TipodeviviendaCREDSolicitud" | translate }}:</ion-label>
+              <ion-select 
+                  [(ngModel)]="selectedCREDSolicitudes.TipodeviviendaCREDSolicitud"
+                  formControlName="TipodeviviendaCREDSolicitud"
+                  placeholder="Arriendo">
+                <ion-select-option value="PR" selected="true">{{ "CREDSolicitudes._TipodeviviendaCREDSolicitud.Propia_" | translate }}</ion-select-option>
+                <ion-select-option value="FA">{{ "CREDSolicitudes._TipodeviviendaCREDSolicitud.Familiar_" | translate }}</ion-select-option>
+                <ion-select-option value="AR">{{ "CREDSolicitudes._TipodeviviendaCREDSolicitud.Arriendo" | translate }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.TipodeviviendaCREDSolicitud.invalid && CREDSolicitudesForm.controls.TipodeviviendaCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.TipodeviviendaCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.EstratoCREDSolicitud" | translate }}:</ion-label>
+              <ion-select 
+                  [(ngModel)]="selectedCREDSolicitudes.EstratoCREDSolicitud"
+                  formControlName="EstratoCREDSolicitud"
+                  placeholder="3">
+                <ion-select-option value="1" selected="true">{{ "CREDSolicitudes._EstratoCREDSolicitud.1" | translate }}</ion-select-option>
+                <ion-select-option value="2">{{ "CREDSolicitudes._EstratoCREDSolicitud.2" | translate }}</ion-select-option>
+                <ion-select-option value="3">{{ "CREDSolicitudes._EstratoCREDSolicitud.3" | translate }}</ion-select-option>
+                <ion-select-option value="4">{{ "CREDSolicitudes._EstratoCREDSolicitud.4" | translate }}</ion-select-option>
+                <ion-select-option value="5">{{ "CREDSolicitudes._EstratoCREDSolicitud.5" | translate }}</ion-select-option>
+                <ion-select-option value="6">{{ "CREDSolicitudes._EstratoCREDSolicitud.6" | translate }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.EstratoCREDSolicitud.invalid && CREDSolicitudesForm.controls.EstratoCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.EstratoCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.TelefonoResidenciaCREDSolicitud" | translate }}:</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.TelefonoResidenciaCREDSolicitud" 
+                  formControlName="TelefonoResidenciaCREDSolicitud" 
+                  placeholder="(571)431-49-93" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.TelefonoResidenciaCREDSolicitud.invalid && CREDSolicitudesForm.controls.TelefonoResidenciaCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.TelefonoResidenciaCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.NumeroCelularCREDSolicitud" | translate }}?</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.NumeroCelularCREDSolicitud" 
+                  formControlName="NumeroCelularCREDSolicitud" 
+                  placeholder="316-359-1802" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.NumeroCelularCREDSolicitud.invalid && CREDSolicitudesForm.controls.NumeroCelularCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.NumeroCelularCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.SuCorrespondenciaSeraEnviadaPorMedioElectronicoMailDeCREDSolicitud" | translate }}?</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.SuCorrespondenciaSeraEnviadaPorMedioElectronicoMailDeCREDSolicitud" 
+                  formControlName="SuCorrespondenciaSeraEnviadaPorMedioElectronicoMailDeCREDSolicitud" 
+                  placeholder="adrua@hotmail.com" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.SuCorrespondenciaSeraEnviadaPorMedioElectronicoMailDeCREDSolicitud.invalid && CREDSolicitudesForm.controls.SuCorrespondenciaSeraEnviadaPorMedioElectronicoMailDeCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.SuCorrespondenciaSeraEnviadaPorMedioElectronicoMailDeCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.SiNoDeseaMedioelectronicoMarqueCREDSolicitud" | translate }}?</ion-label>
+              <ion-select 
+                  [(ngModel)]="selectedCREDSolicitudes.SiNoDeseaMedioelectronicoMarqueCREDSolicitud"
+                  formControlName="SiNoDeseaMedioelectronicoMarqueCREDSolicitud"
+                  placeholder="No">
+                <ion-select-option value="RE" selected="true">{{ "CREDSolicitudes._SiNoDeseaMedioelectronicoMarqueCREDSolicitud.Residencia" | translate }}</ion-select-option>
+                <ion-select-option value="OF">{{ "CREDSolicitudes._SiNoDeseaMedioelectronicoMarqueCREDSolicitud._Oficina" | translate }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.SiNoDeseaMedioelectronicoMarqueCREDSolicitud.invalid && CREDSolicitudesForm.controls.SiNoDeseaMedioelectronicoMarqueCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.SiNoDeseaMedioelectronicoMarqueCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.TiempoEnResidenciaCREDSolicitud" | translate }}:</ion-label>
+              <ion-input 
+                  [(ngModel)]="selectedCREDSolicitudes.TiempoEnResidenciaCREDSolicitud" 
+                  formControlName="TiempoEnResidenciaCREDSolicitud" 
+                  placeholder="3" >
+              </ion-input>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.TiempoEnResidenciaCREDSolicitud.invalid && CREDSolicitudesForm.controls.TiempoEnResidenciaCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.TiempoEnResidenciaCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.HaSidoUstedVictimaDeUnAtentadoTerroristaCombateCREDSolicitud" | translate }}:</ion-label>
+              <ion-checkbox 
+                  [(ngModel)]="selectedCREDSolicitudes.HaSidoUstedVictimaDeUnAtentadoTerroristaCombateCREDSolicitud" 
+                  formControlName="HaSidoUstedVictimaDeUnAtentadoTerroristaCombateCREDSolicitud" 
+                  placeholder="No" >
+              </ion-checkbox>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.HaSidoUstedVictimaDeUnAtentadoTerroristaCombateCREDSolicitud.invalid && CREDSolicitudesForm.controls.HaSidoUstedVictimaDeUnAtentadoTerroristaCombateCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.HaSidoUstedVictimaDeUnAtentadoTerroristaCombateCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.ManejaOManejoRecursosPublicosCREDSolicitud" | translate }}:</ion-label>
+              <ion-checkbox 
+                  [(ngModel)]="selectedCREDSolicitudes.ManejaOManejoRecursosPublicosCREDSolicitud" 
+                  formControlName="ManejaOManejoRecursosPublicosCREDSolicitud" 
+                  placeholder="No" >
+              </ion-checkbox>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.ManejaOManejoRecursosPublicosCREDSolicitud.invalid && CREDSolicitudesForm.controls.ManejaOManejoRecursosPublicosCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.ManejaOManejoRecursosPublicosCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.TieneOTuvoAlgunGradoDePoderPublicoCREDSolicitud" | translate }}:</ion-label>
+              <ion-checkbox 
+                  [(ngModel)]="selectedCREDSolicitudes.TieneOTuvoAlgunGradoDePoderPublicoCREDSolicitud" 
+                  formControlName="TieneOTuvoAlgunGradoDePoderPublicoCREDSolicitud" 
+                  placeholder="No" >
+              </ion-checkbox>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.TieneOTuvoAlgunGradoDePoderPublicoCREDSolicitud.invalid && CREDSolicitudesForm.controls.TieneOTuvoAlgunGradoDePoderPublicoCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.TieneOTuvoAlgunGradoDePoderPublicoCREDSolicitudError" | translate }}</ion-text>       
+        <ion-item>
+              <ion-label position="stacked">{{ "CREDSolicitudes.GozaOGozaDeReconocimientoPublicoCREDSolicitud" | translate }}:</ion-label>
+              <ion-checkbox 
+                  [(ngModel)]="selectedCREDSolicitudes.GozaOGozaDeReconocimientoPublicoCREDSolicitud" 
+                  formControlName="GozaOGozaDeReconocimientoPublicoCREDSolicitud" 
+                  placeholder="No" >
+              </ion-checkbox>
+          </ion-item>
+          <ion-text *ngIf="CREDSolicitudesForm.controls.GozaOGozaDeReconocimientoPublicoCREDSolicitud.invalid && CREDSolicitudesForm.controls.GozaOGozaDeReconocimientoPublicoCREDSolicitud.touched" color="danger" padding-left>{{ "CREDSolicitudes.GozaOGozaDeReconocimientoPublicoCREDSolicitudError" | translate }}</ion-text>       
+
+      </ion-list>
+  </form>
+</ion-content>

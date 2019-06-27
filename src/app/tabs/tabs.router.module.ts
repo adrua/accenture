@@ -12,7 +12,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../tab1/tab1.module#Tab1PageModule'
+            loadChildren: '../cred_solicitudes/cred.solicitudes.page.module#CREDSolicitudesPageModule'
           }
         ]
       },
